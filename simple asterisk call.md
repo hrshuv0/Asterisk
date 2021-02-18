@@ -44,3 +44,31 @@
     context=internal
     
     
+## configure extensions.conf
+
+    [internal]
+    exten => 7001,1,Answer()
+    exten => 7001,2,Dial(SIP/7001,60)
+    exten => 7001,3,Playback(vm-nobodyavail)
+    exten => 7001,4,VoiceMail(7001@main)
+    exten => 7001,5,hangup()
+
+    exten => 7001,1,Answer()
+    exten => 7001,2,Dial(SIP/7001,60)
+    exten => 7001,3,Playback(vm-nobodyavail)
+    exten => 7001,4,VoiceMail(7001@main)
+    exten => 7001,5,hangup()
+
+    exten => 8001,1,VoicemailMain(7001@main)
+    exten => 8001,2,Hangup()
+
+    exten => 8002,1,VoicemailMain(7001@main)
+    exten => 8002,2,Hangup()
+
+## configure voicemail.conf
+
+    [main]
+    7001 => 123
+    7002 => 456
+
+
