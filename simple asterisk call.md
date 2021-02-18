@@ -71,4 +71,20 @@
     7001 => 123
     7002 => 456
 
-
+## run asterisk using 
+    sudo asterisk -cvvv
+or
+    
+    sudo asterisk -rvvvv
+    
+## use this command if needed
+    sudo asterisk -r
+    
+## reload sip and dialplan
+    sio reload
+    dialplan reload
+    
+## chek available peers
+    sip show peers
+    
+#the system is reasy now... :)
