@@ -43,6 +43,13 @@
     secret=456
     context=internal
     
+    [7065]
+    type=friend
+    host=dynamic
+    secret=7065
+    context=internal
+
+    
     
 ## configure extensions.conf
 
@@ -53,17 +60,28 @@
     exten => 7001,4,VoiceMail(7001@main)
     exten => 7001,5,hangup()
 
-    exten => 7001,1,Answer()
-    exten => 7001,2,Dial(SIP/7001,60)
-    exten => 7001,3,Playback(vm-nobodyavail)
-    exten => 7001,4,VoiceMail(7001@main)
-    exten => 7001,5,hangup()
+    
+    exten => 7002,1,Answer()
+    exten => 7002,2,Dial(SIP/7002,60)
+    exten => 7002,3,Playback(vm-nobodyavail)
+    exten => 7002,4,VoiceMail(7001@main)
+    exten => 7002,5,Hangup()
+
+    exten => 7065,1,Answer()
+    exten => 7065,2,Dial(SIP/7065,60)
+    exten => 7065,3,Playback(vm-nobodyavail)
+    exten => 7065,4,VoiceMail(7001@main)
+    exten => 7065,5,Hangup()
 
     exten => 8001,1,VoicemailMain(7001@main)
     exten => 8001,2,Hangup()
 
-    exten => 8002,1,VoicemailMain(7001@main)
-    exten => 8002,2,Hangup()
+    exten => 8002,1,VoicemailMain(7002@main)
+    exten => 8002,2,hangup()
+
+    exten => 8003,1,VoicemailMain(7065@main)
+    exten => 8003,2,Hangup()
+
 
 ## configure voicemail.conf
 
