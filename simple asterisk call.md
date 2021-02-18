@@ -81,7 +81,7 @@ or
     sudo asterisk -r
     
 ## reload sip and dialplan
-    sio reload
+    sip reload
     dialplan reload
     
 ## chek available peers
